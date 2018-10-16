@@ -1,6 +1,8 @@
 #!/bin/sh
 # ADAFRUIT OLED INSTALL
 #
+# Note: it is OK to run this script multiple times.
+#
 # https://learn.adafruit.com/adafruit-pioled-128x32-mini-oled-for-raspberry-pi/usage
 #
 

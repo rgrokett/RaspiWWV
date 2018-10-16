@@ -80,8 +80,12 @@ while 1 :
         mn_snd = snd + str(minutes) + '.mp3'
         if minutes > 20 :
             digits = list(str(minutes))
+        if minutes == 0 :
+            mn_snd = snd + digits[0]+'0' + '.mp3' +' '+ snd 
+        else :
             mn_snd = snd + digits[0]+'0' + '.mp3' +' '+ snd + digits[1] + '.mp3'
 
+	# Say HOUR or HOURS
         hours_s = hrs_file
         if hours == 1 :
             hours_s = hr_file 
@@ -102,7 +106,7 @@ while 1 :
         play_flag = 0
           
     
-    time.sleep(0.25)
+    time.sleep(0.1)
 
 # END LOOP 
 

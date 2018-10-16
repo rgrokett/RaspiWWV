@@ -21,5 +21,5 @@
 #
 # m h  dom mon dow   command
 
-@reboot /bin/bash ./wwv/runWWV.sh  >/dev/null 2>&1
+@reboot /bin/bash ./runWWV.sh  >/dev/null 2>&1
 

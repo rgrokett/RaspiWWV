@@ -1,6 +1,7 @@
 #!/bin/bash
 
 cd /home/pi/RaspiWWV;
-python wwv_simulator.py >/dev/null 2>&1
+python clockOLED.py &
+python wwv_simulator.py 
 #sudo shutdown --no-wall now
 
