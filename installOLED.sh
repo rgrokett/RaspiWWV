@@ -24,3 +24,7 @@ cd
 cd RaspiWWV
 python testOLED.py
 
+echo
+echo "Finished"
+echo
+

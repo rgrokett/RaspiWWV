@@ -5,3 +5,7 @@
 curl -sS https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/i2samp.sh | bash
 
 
+echo
+echo "Finished"
+echo
+

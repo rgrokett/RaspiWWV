@@ -8,3 +8,7 @@ cp runWWV.sh /home/pi/runWWV.sh
 
 crontab cronfile
 
+echo
+echo "Now Reboot your Pi"
+echo
+
