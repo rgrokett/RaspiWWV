@@ -8,9 +8,9 @@
 
 # Install Deps
 sudo apt-get update
-sudo apt-get install build-essential python-dev python-pip
-sudo pip install RPi.GPIO
-sudo apt-get install python-imaging python-smbus
+sudo apt-get install -y build-essential python-dev python-pip
+sudo pip install -y RPi.GPIO
+sudo apt-get install -y python-imaging python-smbus
 
 # Install Libs
 sudo apt-get install git

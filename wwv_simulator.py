@@ -12,10 +12,12 @@ WWV SIMULATOR - Recreates the WWV Shortwave audio broadcast time signal
 	Note that the Pi will automatically recalibrate the RTC
 	whenever it is connected to the Internet (ethernet or wifi)
 
-Original from:
-https://learn.adafruit.com/adding-a-real-time-clock-to-raspberry-pi/overview
-
 """
+# Version 1.0 2018.10.22 
+#
+# License: GPLv3, see: www.gnu.org/licenses/gpl-3.0.html
+#
+ 
 
 import os, sys
 import subprocess
@@ -40,7 +42,7 @@ mn_file  = snd + 'minute.mp3'
 mns_file = snd + 'minutes.mp3'
 
 speak_time = snd + 'starting.mp3'
-play_flag = 0
+play_flag = 1
 
 if DEBUG:
     print ("Starting...")

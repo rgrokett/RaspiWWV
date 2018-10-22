@@ -32,6 +32,7 @@ Y=`grep $RTC /boot/config.txt`
 if [ ! -z "$Y" ];
 then
 	echo "Disabling old software clock..."
+    sudo apt-get update
 	sudo apt-get -y remove fake-hwclock
 	sudo update-rc.d -f fake-hwclock remove
 	sudo systemctl disable fake-hwclock
@@ -64,6 +65,12 @@ else
 	echo
 	sudo bash -c "sed -i '/dtoverlay=i2c-rtc/ c\'$STR /boot/config.txt"
 fi
+
+# Install Deps if needed
+sudo apt-get update
+sudo apt-get install -y build-essential python-dev python-pip
+sudo pip install RPi.GPIO
+sudo apt-get install -y python-imaging python-smbus
 
 
 echo
