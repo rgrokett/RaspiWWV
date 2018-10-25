@@ -6,7 +6,10 @@
 # Requires piOLED Library
 # https://learn.adafruit.com/adafruit-pioled-128x32-mini-oled-for-raspberry-pi/usage
 #
+# Modified from Adafruit examples
+#
 # Version 1.0 2018.10.15 - r.grokett Initial
+# 2018-10-25 added larger font
 #
 # License: GPLv3, see: www.gnu.org/licenses/gpl-3.0.html
 #
@@ -54,16 +57,15 @@ try:
 
   # Load default font.
   font = ImageFont.load_default()
+  font2 = ImageFont.truetype('fonts/VCR_font.ttf', 16)
 
   # Display Starting
   LINE1 = "RaspiWWV Simulator"
   LINE2 = " "
   LINE3 = "Starting..."
-  LINE4 = " "
   draw.text((x, top),       LINE1,  font=font, fill=255)
   draw.text((x, top+8),     LINE2, font=font, fill=255)
-  draw.text((x, top+16),     LINE3, font=font, fill=255)
-  draw.text((x, top+25),     LINE4, font=font, fill=255)
+  draw.text((x, top+16),     LINE3, font=font2, fill=255)
   disp.image(image)
   disp.display()
   while datetime.datetime.utcnow().second != 0 :
@@ -77,14 +79,10 @@ try:
     draw.rectangle((0,0,width,height), outline=0, fill=0)
 
     # Display Date/Time
-    LINE1 = "RaspiWWV Simulator"
-    LINE2 = " "
-    LINE3 = str(cur_date)
-    LINE4 = str(cur_time)+' UTC'
+    LINE1 = str(cur_date)
+    LINE3 = str(cur_time)+' UTC'
     draw.text((x, top),       LINE1,  font=font, fill=255)
-    draw.text((x, top+8),     LINE2, font=font, fill=255)
-    draw.text((x, top+16),     LINE3, font=font, fill=255)
-    draw.text((x, top+25),     LINE4, font=font, fill=255)
+    draw.text((x, top+16),     LINE3, font=font2, fill=255)
     disp.image(image)
     disp.display()
 

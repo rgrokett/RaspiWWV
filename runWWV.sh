@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd /home/pi/RaspiWWV;
-sudo updateRTCtoNTP.sh
+sudo sh updateRTCtoNTP.sh
 
 python clockOLED.py &
 python wwv_simulator.py 

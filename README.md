@@ -22,6 +22,7 @@ For more accuracy, use a higher quality RTC module.
 Note that the Pi will automatically recalibrate the RTC
 whenever it is connected to the Internet (ethernet or wifi)
 
+Also Note: It can take up to two minutes before audio starts (for syncronization)
 
 INSTRUCTIONS:
 [RaspiWWV.pdf](/RaspiWWV.pdf)
@@ -32,5 +33,5 @@ Installs the reboot cron and startup file. (This assumes installed to /home/pi o
 
 Manually run WWV Simulator using:
 
-    $ python wwv_simulator.py
+    $ sh runWWV.sh
 

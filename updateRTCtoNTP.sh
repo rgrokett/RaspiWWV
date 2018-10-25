@@ -8,6 +8,6 @@ X=`ping -c 1 -W 5 8.8.8.8 | grep ' 0% packet loss'`
 
 if [ ! -z "$X" ]
 then
-	sudo hwclock –w --update-drift
+	sudo hwclock -w --update-drift
 fi
 

@@ -12,12 +12,15 @@ WWV SIMULATOR - Recreates the WWV Shortwave audio broadcast time signal
 	Note that the Pi will automatically recalibrate the RTC
 	whenever it is connected to the Internet (ethernet or wifi)
 
+Original RTC code from:
+https://learn.adafruit.com/adding-a-real-time-clock-to-raspberry-pi/overview
+
+Version 1.1 2018.10.25 - r.grokett Force wav kill if OOS
+
+License: GPLv3, see: www.gnu.org/licenses/gpl-3.0.html
+
+
 """
-# Version 1.0 2018.10.22 
-#
-# License: GPLv3, see: www.gnu.org/licenses/gpl-3.0.html
-#
- 
 
 import os, sys
 import subprocess
@@ -41,6 +44,8 @@ hrs_file = snd + 'hours.mp3'
 mn_file  = snd + 'minute.mp3'
 mns_file = snd + 'minutes.mp3'
 
+
+
 speak_time = snd + 'starting.mp3'
 play_flag = 1
 
@@ -60,7 +65,7 @@ while 1 :
 
         # Play WWV SOUND in background
         #subprocess.Popen(["aplay","-q",wwv_file]) 
-	os.system("aplay -q " + wwv_file + "&")
+	os.system("aplay -d 61 -q " + wwv_file + "&")
         play_flag = 1
 
         # BUILD AUDIO FILENAME STRING FOR THIS MINUTE AND WRITE TO TMP
@@ -82,7 +87,7 @@ while 1 :
         mn_snd = snd + str(minutes) + '.mp3'
         if minutes > 20 :
             digits = list(str(minutes))
-            if minutes == 0 :
+            if digits[1] == 0 :
                 mn_snd = snd + digits[0]+'0' + '.mp3' +' '+ snd 
             else :
                 mn_snd = snd + digits[0]+'0' + '.mp3' +' '+ snd + digits[1] + '.mp3'
