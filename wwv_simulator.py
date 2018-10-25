@@ -87,7 +87,7 @@ while 1 :
         mn_snd = snd + str(minutes) + '.mp3'
         if minutes > 20 :
             digits = list(str(minutes))
-            if digits[1] == 0 :
+            if digits[1] == '0' :
                 mn_snd = snd + digits[0]+'0' + '.mp3' +' '+ snd 
             else :
                 mn_snd = snd + digits[0]+'0' + '.mp3' +' '+ snd + digits[1] + '.mp3'
@@ -107,13 +107,13 @@ while 1 :
             print (speak_time)
 
     # AT 45 SECONDS, PLAY TIME STRING AUDIO
-    if utc_now.second == 45 :
+    if (utc_now.second == 45 and play_flag == 1):
         #wait_here = subprocess.Popen(["mpg123","-q",speak_time]) 
 	os.system("mpg123 -q " + speak_time)
         play_flag = 0
           
     
-    time.sleep(0.1)
+    time.sleep(0.2)
 
 # END LOOP 
 
