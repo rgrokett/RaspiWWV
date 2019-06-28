@@ -1,21 +1,22 @@
 """
 WWV SIMULATOR - Recreates the WWV Shortwave audio broadcast time signal 
-	without requiring a radio or even Internet access.
-	This syncronizes the Pi audio to a local Real-Time Clock (RTC)
-	playing the correct time like WWV.
+    without requiring a radio or even Internet access.
+    This syncronizes the Pi audio to a local Real-Time Clock (RTC)
+    playing the correct time like WWV.
 
-	ACCURACY:
-	The Pi's clock is set to the RTC so is as accurate as the RTC
-	module. (Typically, +-1 second or so per day)
-	For more accuracy, use a higher quality RTC module.
+    ACCURACY:
+    The Pi's clock is set to the RTC so is as accurate as the RTC
+    module. (Typically, +-1 second or so per day)
+    For more accuracy, use a higher quality RTC module.
 
-	Note that the Pi will automatically recalibrate the RTC
-	whenever it is connected to the Internet (ethernet or wifi)
+    Note that the Pi will automatically recalibrate the RTC
+    whenever it is connected to the Internet (ethernet or wifi)
 
 Original RTC code from:
 https://learn.adafruit.com/adding-a-real-time-clock-to-raspberry-pi/overview
 
 Version 1.1 2018.10.25 - r.grokett Force wav kill if OOS
+version 1.2 2019.06.28 - removed tabs
 
 License: GPLv3, see: www.gnu.org/licenses/gpl-3.0.html
 
@@ -65,7 +66,7 @@ while 1 :
 
         # Play WWV SOUND in background
         #subprocess.Popen(["aplay","-q",wwv_file]) 
-	os.system("aplay -d 61 -q " + wwv_file + "&")
+        os.system("aplay -d 61 -q " + wwv_file + "&")
         play_flag = 1
 
         # BUILD AUDIO FILENAME STRING FOR THIS MINUTE AND WRITE TO TMP
@@ -92,7 +93,7 @@ while 1 :
             else :
                 mn_snd = snd + digits[0]+'0' + '.mp3' +' '+ snd + digits[1] + '.mp3'
 
-	# Say HOUR or HOURS
+    # Say HOUR or HOURS
         hours_s = hrs_file
         if hours == 1 :
             hours_s = hr_file 
@@ -101,7 +102,7 @@ while 1 :
         if minutes == 1 :
             mins_s = mn_file 
 
-        speak_time = pre_file+' ' + hr_snd+' ' + hours_s+' ' + mn_snd+' ' + mins_s+' ' + post_file	
+        speak_time = pre_file+' ' + hr_snd+' ' + hours_s+' ' + mn_snd+' ' + mins_s+' ' + post_file  
 
         if DEBUG :
             print (speak_time)
@@ -109,7 +110,7 @@ while 1 :
     # AT 45 SECONDS, PLAY TIME STRING AUDIO
     if (utc_now.second == 45 and play_flag == 1):
         #wait_here = subprocess.Popen(["mpg123","-q",speak_time]) 
-	os.system("mpg123 -q " + speak_time)
+        os.system("mpg123 -q " + speak_time)
         play_flag = 0
           
     
